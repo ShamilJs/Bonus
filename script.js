@@ -73,7 +73,7 @@ const createModal = target => {
     let alt = target.alt,
         textContent = target.textContent.trim();
        
-    dataArray.forEach((item, index) => {
+    dataArray.forEach(item => {
         if (textContent === item.name || alt === item.name) {
             let { name, realName, species,
                 citizenship, gender, birthDay,
