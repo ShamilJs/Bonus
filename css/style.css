@@ -47,8 +47,7 @@ body {
 .IDcard .head img {
 	vertical-align:middle;  
 	border-radius:100px;
-	max-height:60px;
-	max-width:60px;
+	max-width:100px;
 	margin-right:5px;
 }
 
