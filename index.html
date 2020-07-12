@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/heroCards.png">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>HeroCards - Карточки героев</title>
+</head>
+
+<body>
+    <label class="wrapper" for="states">Hero Card File<br>Please select a movie to watch the heroes card index
+    </label>
+    <div class="button dropdown"> 
+        <select id="colorselector">
+            <option value="All movies">All movies</option>
+        </select>
+    </div>
+
+    <div id="heroWrap">
+        <ul>
+        </ul>
+    </div>
+
+    <div class="error-page-wrap">
+        <article class="error-page gradient">
+            <hgroup>
+                <h1>Error</h1>
+                <h2>oops! Something went wrong...</h2>
+            </hgroup>
+        </article>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
