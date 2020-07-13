@@ -10,25 +10,18 @@ let dataArray = [],
 const iteratingArrayElemens = arg => {
     dataArray.forEach(item => {
         for(let key in item) {
-            if (arg === 0) {
-                if (item.movies) {             
-                    item.movies.forEach(elem => {
+            if (item.movies) {
+                item.movies.forEach(elem => {
+                    if (arg === 0) {
                         selectArray.push(elem.trim());
-                    });
-                } else {
-                    selectArray.push('other heroes');
-                }
-            }
-            if (arg === 1) {
-                if (item.movies) {
-                    item.movies.forEach(elem => {
-                        if (selector.value === elem.trim()) {
-                            dataFilterArray.push(item);
-                        }
-                    });
-                } else if (!item.movies && selector.value === 'other heroes') {
-                    dataFilterArray.push(item);
-                } 
+                    } else if (arg === 1 && selector.value === elem.trim()) {
+                        dataFilterArray.push(item);
+                    }
+                });
+            } else if (!item.movies && selector.value === 'other heroes') {
+                dataFilterArray.push(item);
+            } else {
+                selectArray.push('other heroes');
             }
         }
     });
