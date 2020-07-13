@@ -135,22 +135,27 @@ const errorFunction = () => {
 
 const getData = () => {
     error.style.display = 'none';
-    const request  = new XMLHttpRequest();
-    request.open('GET', './dbHeroes.json');
-    request.setRequestHeader('Content-Type', 'application/json');
-    request.send();
-    request.addEventListener('readystatechange', event => {
-        if (request.readyState !== 4) {
-            return;
-        }
-        if (request.status === 200) {
-            initFunction(request);
-        } else {
-            errorFunction();
-        }
+    return new Promise((resolve, reject) => {
+        const request  = new XMLHttpRequest();
+        request.open('GET', './dbHeroes.json');
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.addEventListener('readystatechange', event => {
+            if (request.readyState !== 4) {
+                return;
+            }
+            if (request.status === 200) {
+                resolve(request);
+            } else {
+                reject(request.statusText);
+            }
+        });
+        request.send();
     });
 };
-getData();
+
+getData()
+.then(initFunction)
+.catch(errorFunction);
 
 heroesShowsList.addEventListener('click', event => {
     event.preventDefault();
