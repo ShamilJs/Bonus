@@ -55,9 +55,10 @@ const selectTheMovie = () => {
         dataFilterArray = [];
         if (selector.value === 'All movies') {
             dataFilterArray = dataArray;
+        } else {
+            iteratingArrayElemens(1);
+            dataFilterArray = [...new Set(dataFilterArray)]; 
         }
-        iteratingArrayElemens(1);
-        dataFilterArray = [...new Set(dataFilterArray)];
         createForms(dataFilterArray);
     });
 };
